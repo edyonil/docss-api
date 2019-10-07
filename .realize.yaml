@@ -1,0 +1,31 @@
+settings:
+  legacy:
+    force: true
+    interval: 0s
+server:
+  status: false
+  open: false
+  port: 3000
+  host: localhost
+schema:
+- name: app
+  path: .
+  commands:
+    install:
+      status: true
+      method: go build -o ./app
+    run:
+      status: true
+      method: ./app
+    test:
+      status: true
+      method: go test ./...
+  watcher:
+    paths:
+    - /
+    extensions:
+    - go
+    - html
+    - css
+    - js
+    - yaml
